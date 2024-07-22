@@ -87,21 +87,23 @@ h1, h2, h3, h4, h5, h6 {
   animation-fill-mode: forwards;
   position: relative; /* Ensure correct positioning */
 }
-
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@keyframes blink-caret {
-  from, to { border-color: transparent; }
-  50% { border-color: var(--text-secondary); }
-}
-
-.hero-title.typed:after {
-  content: '';
-  border-right: none;
-  animation: none;
+@media (min-width: 600px) {
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--text-secondary); }
+  }
+  
+  .hero-title.typed:after {
+    content: '';
+    border-right: none;
+    animation: none;
+  }
+  
 }
 
 .form-container {
@@ -307,3 +309,10 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
 }
 
+
+@media (max-width: 320px) {
+  h1 {
+    font-size: 0.5rem; /* Adjust the font size for smaller screens */
+    word-wrap: break-word; /* Ensures long words will break onto the next line */
+  }
+}
