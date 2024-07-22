@@ -3,7 +3,7 @@ name: GitHub Pages Deployment
 on:
   push:
     branches:
-      - main  # Set the branch you want to deploy from
+      - main  # Change this to your default branch if necessary
 
 jobs:
   deploy:
@@ -11,21 +11,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3  # Update to the latest version
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3  # Update to the latest version
-        with:
-          node-version: '20'  # Specify the version of Node.js you want to use
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build the project
-        run: npm run build  # Adjust this command to your build process
+        uses: actions/checkout@v3
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # Adjust this to your build output directory
+          publish_dir: ./  # Publish the root directory if your files are at the root level
